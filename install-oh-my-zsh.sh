@@ -16,5 +16,7 @@ mv $HOME/.zshrc $HOME/.zshrc-old
 curl -sL https://raw.githubusercontent.com/muj-programmer/server-utils/master/templates/zshrc > $HOME/.zshrc
 echo "Installed: oh-my-zsh in $HOME/.oh-my-zsh"
 
-echo "Action: changing default shell"
 chsh -s $(which zsh)
+echo "Action: changed default shell"
+
+echo "Log back in for changes to take effect."
