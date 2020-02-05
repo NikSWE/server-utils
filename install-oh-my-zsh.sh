@@ -16,7 +16,15 @@ mv $HOME/.zshrc $HOME/.zshrc-old
 curl -sL https://raw.githubusercontent.com/muj-programmer/server-utils/master/templates/zshrc > $HOME/.zshrc
 echo "Installed: oh-my-zsh in $HOME/.oh-my-zsh"
 
-chsh -s $(which zsh)
-echo "Action: changed default shell"
+if ! echo $SHELL | grep ".*/zsh$" 1>/dev/null 2>&1
+then
+    if (sudo -vn && sudo -ln) 2>&1 | grep 'may not' 1>/dev/null
+    then
+        echo "Error: contact administrator to change your default shell to zsh"
+        exit 2
+    else
+        sudo chsh -s $(which zsh)
+    fi
+fi
 
-echo "Log back in for changes to take effect."
+echo "Info: changes will take effect the next time you login"
