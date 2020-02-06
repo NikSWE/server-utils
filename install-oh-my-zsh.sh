@@ -28,3 +28,4 @@ then
 fi
 
 echo "Info: changes will take effect the next time you login"
+echo "Note: contact administrator if your default shell doesn't change to zsh after login"
